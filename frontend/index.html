@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+
+    <header class="app-header">
+      <h1>&#9925; Weather Dashboard</h1>
+    </header>
+
+    <main class="container">
+
+      <!-- Search Section -->
+      <section class="search-section" aria-label="City search">
+        <div class="search-bar">
+          <input
+            type="text"
+            id="cityInput"
+            class="search-input"
+            placeholder="Enter city name..."
+            aria-label="City name"
+            autocomplete="off"
+          />
+          <button id="getWeatherBtn" class="btn btn-primary" aria-label="Get weather">
+            Get Weather
+          </button>
+          <button id="locationBtn" class="btn btn-secondary" aria-label="Use my location" title="Use my location">
+            &#128205;
+          </button>
+        </div>
+        <p id="errorMsg" class="error-msg" role="alert" aria-live="polite" hidden></p>
+      </section>
+
+      <!-- Unit Toggle -->
+      <div class="unit-toggle" aria-label="Temperature unit toggle">
+        <button id="celsiusBtn" class="unit-btn active" aria-pressed="true">°C</button>
+        <button id="fahrenheitBtn" class="unit-btn" aria-pressed="false">°F</button>
+      </div>
+
+      <!-- Loading Spinner -->
+      <div id="spinner" class="spinner" hidden aria-label="Loading" role="status">
+        <div class="spinner-ring"></div>
+        <span>Fetching weather...</span>
+      </div>
+
+      <!-- Current Weather Results -->
+      <section id="weatherResults" class="weather-results" hidden aria-label="Current weather">
+        <div class="weather-card">
+          <div class="weather-card__header">
+            <div>
+              <h2 id="cityName" class="city-name"></h2>
+              <p id="weatherDate" class="weather-date"></p>
+            </div>
+            <img id="weatherIcon" class="weather-icon" src="" alt="" />
+          </div>
+
+          <div class="weather-card__body">
+            <div class="temp-display">
+              <span id="temperature" class="temperature"></span>
+              <span class="temp-unit">°C</span>
+            </div>
+            <p id="weatherDesc" class="weather-desc"></p>
+          </div>
+
+          <div class="weather-card__stats">
+            <div class="stat">
+              <span class="stat__label">Feels Like</span>
+              <span id="feelsLike" class="stat__value"></span>
+            </div>
+            <div class="stat">
+              <span class="stat__label">Humidity</span>
+              <span id="humidity" class="stat__value"></span>
+            </div>
+            <div class="stat">
+              <span class="stat__label">Wind</span>
+              <span id="windSpeed" class="stat__value"></span>
+            </div>
+            <div class="stat">
+              <span class="stat__label">Pressure</span>
+              <span id="pressure" class="stat__value"></span>
+            </div>
+            <div class="stat">
+              <span class="stat__label">Visibility</span>
+              <span id="visibility" class="stat__value"></span>
+            </div>
+            <div class="stat">
+              <span class="stat__label">UV Index</span>
+              <span id="uvIndex" class="stat__value"></span>
+            </div>
+          </div>
+
+          <div class="weather-card__sun">
+            <span>&#127765; Sunrise: <strong id="sunrise"></strong></span>
+            <span>&#127764; Sunset: <strong id="sunset"></strong></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5-Day Forecast -->
+      <section id="forecastSection" class="forecast-section" hidden aria-label="5-day forecast">
+        <h3 class="forecast-title">5-Day Forecast</h3>
+        <div id="forecastCards" class="forecast-cards"></div>
+      </section>
+
+    </main>
+
+    <footer class="app-footer">
+      <p>Powered by <a href="https://openweathermap.org" target="_blank" rel="noopener noreferrer">OpenWeatherMap</a></p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
